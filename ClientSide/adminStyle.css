@@ -1,0 +1,28 @@
+body{
+    background-color: #245580;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.navbar {
+    background-color: white;
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+#loginContainer {
+    position: relative;
+    margin-top: 20%;
+    width: 300px;
+    margin-left: 42%;
+}
+
+#headerImage {
+    padding-right: 20px;
+}
+
+#adminEditor {
+    margin-top: 10%;
+}

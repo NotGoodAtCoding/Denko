@@ -1,0 +1,21 @@
+[
+	{"title" : "New Web Development Positions",
+	"desc" : "Some new positions opened up after our entire web team mysteriously dissappeared. Now accepting applications!", 
+	"img" : "/Images/ProjectPics/1.png"},
+	
+	{"title" : "Congratulations Jimmy!",
+	"desc" : "Our new intern, James Rustlin, has just become the first intern to work remotely from space! Stellar job, James!",
+	"img" : "/Images/ProjectPics/2.png"},
+	
+	{"title" : "New JavaScript Framework: KALE",
+	"desc" : "Congratulations to our framework development team for creating the fifth new JavaScript framework this month! KALE (Kinetic Application Lightweight Emulator) is set to ship next week!",
+	"img" : "/Images/ProjectPics/3.png"},
+	
+	{"title" : "New Printer Functionality",
+	"desc" : "I'm pleased to announce that the Office Printer division has successfully updated the drivers in our printers to be able to play chess!",
+	"img" : "/Images/ProjectPics/4.png"},
+	
+	{"title" : "Cybernetic Goat Project Shutting Down",
+	"desc" : "It saddens all of us in the Project Oversight comittee to have to put an end to the GoAT-BOT project. We appreciate all your hard work, but the rates of goat mortality were too high to allow for further development.",
+	"img" : "/Images/ProjectPics/5.png"}
+]

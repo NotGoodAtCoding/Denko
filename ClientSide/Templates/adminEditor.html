@@ -1,0 +1,44 @@
+<main id="adminEditor">
+    <section class="col-xs-12 col-lg-5" ng-controller="dataEditor" ng-init="init('contacts')">
+        <h2 class="row col-xs-12">{{title}} Editor</h2>
+        <div class="row">
+            <span class="col-xs-3">Title</span>
+            <span class="col-xs-7">Value</span>
+        </div>
+        <ul class="row">
+            <li ng-repeat="dataObject in data track by $index">
+                <input class="col-xs-3" type="text" ng-model="dataObject.title">
+                <input class="col-xs-7" type="text"  ng-model="dataObject.value">
+                <button class="col-xs-2" ng-click="deleteData($index)">Delete</button>
+            </li>
+            <li>
+                <input class="col-xs-3" type="text" ng-model="newData.title">
+                <input class="col-xs-7" type="text" ng-model="newData.value">
+                <button class="col-xs-1" ng-click="clearNewData()">Clear</button>
+                <button class="col-xs-1" ng-click="addNewData()">Add</button>
+            </li>
+        </ul>
+        <button ng-click="submit()">Submit</button>
+    </section>
+    <section class="col-xs-12 col-lg-7" ng-controller="dataEditor" ng-init="init('announcements')">
+        <h2 class="row col-xs-12">{{title}} Editor</h2>
+        <div class="row">
+            <span class="col-xs-3">Type</span>
+            <span class="col-xs-7">Value</span>
+        </div>
+        <ul class="row">
+            <li ng-repeat="dataObject in data track by $index">
+                <input class="col-xs-3" type="text" ng-model="dataObject.title">
+                <input class="col-xs-7" type="text"  ng-model="dataObject.value">
+                <button class="col-xs-2" ng-click="deleteData($index)">Delete</button>
+            </li>
+            <li>
+                <input class="col-xs-3" type="text" ng-model="newData.title">
+                <input class="col-xs-7" type="text" ng-model="newData.value">
+                <button class="col-xs-1" ng-click="clearNewData()">Clear</button>
+                <button class="col-xs-1" ng-click="addNewData()">Add</button>
+            </li>
+        </ul>
+        <button ng-click="submit()">Submit</button>
+    </section>
+</main>

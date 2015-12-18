@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head lang="en">
+    <!-- Metadata stuff -->
+    <meta charset="UTF-8">
+    <title>Office-Board</title>
+    <link rel="icon" type="image/png" href="Images/Favicons/favicon.png">
+    <!-- Style stuff -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Script stuff -->
+    <script src="angular.js"></script>
+    <script src="app.js"></script>
+    <script src="./socket.io/socket.io.js"></script>
+    <script>
+        var socket = io.connect(window.location.origin);
+    </script>
+</head>
+<body class="container-fluid">
+    <section class='title' id="title" ng-controller='titleController'>
+		<h1>(´・ω・`)</h1>
+		<h3>{{clock | date : 'MMM dd, yyyy h:mm:ss a'}}</h3>
+    </section>
+	
+    <section id="info"  class="col-xs-12 col-md-6 col-lg-4 col-lg-push-4  ng-scope" ng-controller="infoController">
+        <section class='inner' id="announcements">
+		<h1>Announcements</h1>
+            <ul>
+                <li ng-repeat="announcement in announcements">
+                    <h3>{{announcement.title}}</h3>
+                    <p>{{announcement.value}}</p>
+                </li>
+            </ul>
+        </section>
+        <section class='inner' id="contactInformation">
+            <h2>Contact Information</h2>
+            <ul>
+                <li ng-repeat="contact in contacts">
+                    <span>{{contact.title}}</span>
+                    <span>{{contact.value}}</span>
+                </li>
+            </ul>
+        </section>
+    </section>
+	
+	<section id="media" class="col-xs-12 col-md-6 col-lg-4 col-lg-pull-4 panel">
+	
+		<section class='inner'  ng-controller="slideController">
+			<h1>Projects</h1>
+				<div class="slider">
+					<h3>{{project.title}}</h3>
+					<img class='projectImg' ng-src="{{project.img}}">
+					<p>{{project.desc}}</p>
+				</div>
+		</section>
+		
+	</section>
+    <section id="weather" class="col-xs-12 col-lg-4 panel">
+		<section class='inner' ng-controller="weatherController">
+			<h1>Weather Forecast</h1>
+			<ul class="container-fluid" ng-show="weather.currently">
+				<li class="weatherList">
+					<ul type='info' class="col-xs-6">
+						<li>{{weather.currently.time | timeFilter}}</li>
+						<li>{{weather.currently.temperature}}</li>
+						<li>{{weather.currently.altTitles[count%3]}} {{weather.currently.alternating[count % 3]}}</li>
+					</ul>
+					<span class="col-xs-5">
+						<img ng-src="{{weather.currently.image[imgCode]}}">
+					</span>
+				</li>
+				<div class="col-sm-6">
+				<h4>Today</h4>
+					<li class="weatherList" ng-repeat="hour in weather.hourly">
+						<ul type='info' class="col-xs-6">
+							<li>{{hour.time | timeFilter}}</li>
+							<li>{{hour.temperature}}</li>
+							<li>{{hour.altTitles[count % 2]}} {{hour.alternating[count % 2]}}</li>
+						</ul>
+						<span class="col-xs-5">
+							<img class='weatherImage' ng-src="{{hour.image[imgCode]}}">
+						</span>
+					</li>
+				</div>
+				<div class="col-sm-6">
+				<h4>This Week</h4>
+					<li class="weatherList" ng-repeat="day in weather.daily">
+						<ul type='info' class="col-xs-6">
+							<li>{{day.date | dowFilter}}</li>
+							<li>{{day.altTitles[count%3][0]}} {{day.alternating[count%3][0]}}</li>
+							<li>{{day.altTitles[count%3][1]}} {{day.alternating[count%3][1]}}</li>
+						</ul>
+							<span class="col-xs-5">
+								<img class='weatherImage' ng-src="{{day.image[imgCode]}}">
+							</span>
+					</li>
+				</div>
+			</ul>
+		</section>
+	</section>
+    <section id="news" class="hidden-xs col-md-12 panel" ng-controller="newsController">
+        <marquee><span ng-repeat="temp in news">{{temp.title}} - {{temp.source}} | </span></marquee>
+    </section>
+</body>
+</html>
